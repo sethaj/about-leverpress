@@ -1,0 +1,57 @@
+backend:
+  name: github
+  repo: mlibrary/about-leverpress
+media_folder: static/assets
+public_folder: assets
+collections:
+  - name: news
+    label: News
+    folder: src/content/news
+    create: true
+    slug: "news/{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: templateKey, label: "Template Key", widget: hidden, default: news }
+      - { name: title, label: Title }
+      - { name: date, label: Published, widget: datetime }
+      - { name: image, label: Image, widget: image }
+      - { name: body, label: Body, widget: markdown }
+  - name: events
+    label: Events
+    folder: src/content/events
+    create: true
+    slug: "events/{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: templateKey, label: "Template Key", widget: hidden, default: event }
+      - { name: title, label: Title }
+      - { name: data, label: Published, widget: datetime }
+      - { name: image, label: Image, widget: image }
+      - { name: body, label: Body, widget: markdown }
+  - name: books
+    label: Books
+    folder: src/content/books
+    create: true
+    slug: "books/{{authorLastname}-{{title}}"
+    fields:
+      - { name: templateKey, label: "Template Key", widget: hidden, default: book }
+      - { name: title, label: Title }
+      - { name: authorLastname, label: "Primary Author Last Name" }
+      - { name: author, label: "Author(s)", widget: datetime }
+      - { name: cover, label: Cover, widget: image }
+      - { name: description, label: Description }
+  - name: pages
+    label: Pages
+    files:
+      - file: "src/content/pages/about.md"
+        name: about
+        label: About
+        fields:
+          - { name: templateKey, label: "Template Key", widget: hidden, default: about-page }
+          - { name: title, label: About }
+          - { name: body, label: Body, widget: markdown }
+      - file: "src/content/pages/info.md"
+        name: info
+        label: Info
+        fields:
+          - { name: templateKey, label: "Template Key", widget: hidden, default: info-page }
+          - { name: title, label: Info }
+          - { name: body, label: Body, widget: markdown }
