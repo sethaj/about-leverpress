@@ -6,6 +6,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      }
+    },
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       // for netlify
       resolve: 'gatsby-source-filesystem',
@@ -28,7 +34,6 @@ module.exports = {
         path: `${__dirname}/src/content/pages`,
       },
     },
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
