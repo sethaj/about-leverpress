@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mlibrary/about-leverpress
+  repo: sethaj/about-leverpress
 media_folder: static/assets
 public_folder: assets
 collections:
